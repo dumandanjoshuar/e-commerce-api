@@ -66,11 +66,11 @@ npm install
   - Auth Header Required: No
 	- Request Body: *None*
 - **Retrieve single product (GET)**
-  - Endpoint: http://localhost:4000/products/single-product/:productId
+  - Endpoint: http://localhost:4000/products/:productId
   - Auth Header Required: No
   - Request Body: *None*
 - **Update a product (Admin Only) (PUT)**
-  - Endpoint: http://localhost:4000/products/update-product/:productId
+  - Endpoint: http://localhost:4000/products/:productId
   - Auth Header Required: Yes
   - Request Body:
     - name (string)
