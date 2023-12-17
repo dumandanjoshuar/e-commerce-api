@@ -57,9 +57,19 @@ module.exports.loginUser = (req, res) => {
 module.exports.getUserDetails = async (req, res) => {
   try {
     const data = await User.findById(req.user.id);
-    res.json({ data });
+    res.send(data);
   } catch (err) {
     res.status(500).json({ error: err.message });
+  }
+};
+
+// Retrieve all users
+module.exports.getAllUsers = async (req, res) => {
+  try {
+    const data = await User.find({}); // Use await to wait for the promise to resolve
+    res.send(data);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
 };
 

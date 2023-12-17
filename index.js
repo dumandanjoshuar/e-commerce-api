@@ -28,10 +28,10 @@ db.once('open', () => console.log(`Now connected to Database`))
 
 
 // Backend routes
-app.use('/users', userRoutes)
-app.use('/products', productRoutes)
-app.use('/orders', orderRoutes)
-app.use('/carts', cartRoutes)
+app.use('/b2/users', userRoutes)
+app.use('/b2/products', productRoutes)
+app.use('/b2/orders', orderRoutes)
+app.use('/b2/carts', cartRoutes)
 
 
 // Server Gateway Response

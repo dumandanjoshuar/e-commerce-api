@@ -9,7 +9,7 @@ const auth = require('../auth')
 const {verify, verifyAdmin} = auth
 
 // checkout/create order
-router.post('/checkout/', verify, orderController.createOrder)
+router.post('/checkout', verify, orderController.createOrder)
 
 // Route for retrieving user's order
 router.get('/user-orders', verify, orderController.getOrders)

@@ -18,10 +18,10 @@ router.get('/all', productController.getAllProduct)
 router.get('/all-active', productController.allActiveProduct)
 
 // Retrive single product
-router.get('/single-product/:productId', productController.getSingleProduct)
+router.get('/:productId', productController.getSingleProduct)
 
 // Update product information (ADMIN ONLY)
-router.put('/update-product/:productId', verify, verifyAdmin, productController.updateProduct)
+router.put('/:productId', verify, verifyAdmin, productController.updateProduct)
 
 // Archiving Product (ADMIN ONLY)
 router.put('/archive/:productId', verify, verifyAdmin, productController.archiveProduct)

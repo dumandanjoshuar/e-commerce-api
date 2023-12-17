@@ -57,7 +57,6 @@ module.exports.allActiveProduct = async (req, res) => {
 
 
 // Retrieve single product
-
 module.exports.getSingleProduct = async (req, res) => {
   
   try {
@@ -87,7 +86,7 @@ module.exports.updateProduct = async (req, res) => {
       });
 
       if (updatedProductResult) {
-        res.status(200).json(updatedProductResult);
+        res.send(true);
       } else {
         res.status(404).json({ error: 'Product not found' });
       }

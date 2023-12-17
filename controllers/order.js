@@ -44,8 +44,6 @@ module.exports.createOrder = async (req, res) => {
       return isNaN(productTotal) ? acc : acc + productTotal;
     }, 0);
 
-    // Debugging: Log totalAmount
-    console.log('Total Amount:', totalAmount);
 
     // Create a new order if totalAmount is a valid number
     if (!isNaN(totalAmount)) {
@@ -95,7 +93,7 @@ module.exports.getOrders = async (req, res) => {
     })
     .sort({ purchasedOn: -1 })
     
-    res.status(200).json(userOrders)
+    res.send(userOrders)
   } catch (err) {
     res.status(500).json({ error: err.message})
   }

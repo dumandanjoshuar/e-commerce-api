@@ -34,7 +34,7 @@ module.exports.addToCart = async (req, res) => {
       productName: product.name,
       price: product.price,
       quantity,
-      subTotal: product.price * quantity,
+      subTotal: parseFloat((product.price * quantity).toFixed(2)),
     };
 
     // Update or create user's cart
@@ -61,6 +61,8 @@ module.exports.addToCart = async (req, res) => {
 
     // Save the updated cart
     await userCart.save();
+    
+    console.log("Calculated Quantity:", quantity)
 
     res.status(200).json({ message: 'Product added to cart successfully', userCart });
   } catch (error) {
@@ -165,7 +167,7 @@ module.exports.getUserCart = async (req, res) => {
     // Fetch the user's cart
     const userCart = await Cart.findOne({ userId }).populate({
       path: 'items.productId',
-      select: ['_id', 'name', 'description', 'price'],
+      select: ['_id', 'name', 'quantity', 'price'],
     });
 
     if (!userCart) {
