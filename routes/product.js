@@ -9,7 +9,8 @@ const auth = require('../auth')
 const {verify, verifyAdmin} = auth
 
 // Add product
-router.post('/add-product', verify, verifyAdmin, productController.addProduct)
+// verify, verifyAdmin deleted
+router.post('/add-product', productController.addProduct)
 
 // Retrive all products
 router.get('/all', productController.getAllProduct)
@@ -24,7 +25,8 @@ router.get('/:productId', productController.getSingleProduct)
 router.put('/:productId', verify, verifyAdmin, productController.updateProduct)
 
 // Archiving Product (ADMIN ONLY)
-router.put('/archive/:productId', verify, verifyAdmin, productController.archiveProduct)
+// change , verify, verifyAdmin
+router.put('/archive/:productId', productController.archiveProduct)
 
 // Activating Product (ADMIN ONLY)
 router.put('/activate/:productId', verify, verifyAdmin, productController.activateProduct)

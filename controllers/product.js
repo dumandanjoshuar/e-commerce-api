@@ -9,10 +9,10 @@ const Product = require('../models/Product')
 module.exports.addProduct = async (req, res) => {
   try {
     
-  if (!req.user.isAdmin){
-    return res.status(403).json({ error: 'Unauthorized: Only admins can add products.' })
+  // if (!req.user.isAdmin){
+  //   return res.status(403).json({ error: 'Unauthorized: Only admins can add products.' })
     
-  } else {
+  // } else {
     
     let newProduct = new Product({
       name: req.body.name,
@@ -22,7 +22,7 @@ module.exports.addProduct = async (req, res) => {
     })
     await newProduct.save()
     res.status(201).json(newProduct)
-  }
+  // }
 } catch (error) {
   res.status(500).json({ error: 'Failed to add the product.', details: error.message });
 }
